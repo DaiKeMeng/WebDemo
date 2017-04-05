@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS DOM对象</title>
+</head>
+<body onload="" >
+
+<!--
+************************************************************************
+DOM操作其实就是JS通过代码来修改HTML元素中的  属性    类型   样式   点击事件
+
+通过 id 找到 HTML 元素
+通过标签名找到 HTML 元素
+通过类名找到 HTML 元素
+
+************************************************************************
+-->
+
+<p>Hello world</p>
+
+<div id="main">
+    <p>演示<b>getElementsByTagName</b>方法</p>
+    <p>我是第二行</p>
+    <p></p>
+</div>
+
+<button type="button" onclick="changevalueAction()">点我试使</button>
+
+<script>
+    function changevalueAction() {
+        document.getElementById("main").getElementsByTagName("p")[1].innerHTML="方式有效"
+    }
+</script>
+
+
+<img id="image" src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"
+     onmouseover="changeimageaction()" onmouseout="changeimageaction1()" onmousedown="onmousedownaction(this)"
+     onmouseup="onmouseupaction(this)">
+
+<button type="button" onclick="document.getElementById('image').style.visibility='hidden'">隐藏图片</button>
+<button type="button" onclick="document.getElementById('image').style.visibility='visible'">显示图片</button>
+
+<script>
+    document.getElementsByTagName("body")[0].style.backgroundColor='forestgreen';
+    function changeimageaction() {
+        document.getElementById("image").src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=138343691,1614619118&fm=80&w=179&h=119&img.JPEG";
+    }
+
+    function changeimageaction1() {
+        document.getElementById("image").src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png";
+    }
+</script>
+
+
+<!--
+************************************************************************
+JavaScript参与HTML的点击事件
+        当用户点击鼠标时
+        当网页已加载时
+        当图像已加载时
+        当鼠标移动到元素上时  onmouseover    当鼠标移除控制区域  onmouseout
+        当输入字段被改变时
+        当提交 HTML 表单时
+        当用户触发按键时
+************************************************************************
+-->
+
+<input type="text" onchange="onchangeinputaciton(this)">
+
+<script>
+    function onchangeinputaciton(id) {
+        console.log(id.value);
+    }
+</script>
+
+
+<h1 id="hdemo" onclick="changeinnerHTMLAction()" onmousedown="onmousedownaction(this)" onmouseup="onmouseupaction(this)">请点击该文本</h1>
+<script>
+    function changeinnerHTMLAction() {
+        x = document.getElementById('hdemo');
+        x.innerHTML="谢谢!";
+    }
+    function onmousedownaction(id) {
+        id.innerHTML="松开手指试试";
+        id.style.backgroundColor='blue';
+    }
+
+    function onmouseupaction(id) {
+        id.innerHTML="按下去试试";
+        id.style.backgroundColor='forestgreen';
+    }
+</script>
+
+
+<!--
+************************************************************************
+JavaScript 操作节点
+************************************************************************
+-->
+
+<div id="div1">
+    <p id="pdemo">第一个段落</p>
+    <p>第二个段落</p>
+    <button type="button" onclick="onclickinsert()">插入一个段落</button>
+    <button type="button" onclick="onclickremove()">删除一个段落</button>
+</div>
+
+<script>
+    function onclickinsert() {
+        var para = document.createElement("p");
+        var textcontent = document.createTextNode("这是新增加的段落");
+        para.appendChild(textcontent);
+        document.getElementById("pdemo").appendChild(para);
+    }
+
+    function onclickremove() {
+        var x = document.getElementById("div1");
+        console.log(x);
+        var y = x.getElementsByTagName("p")[1];
+
+//        parentNode 是获取HTML标签的父类标签，从而可以进行删除或者添加操作
+        y.parentNode.removeChild(y);
+    }
+</script>
+
+
+
+
+<!--
+************************************************************************
+如何改变 HTML 元素的内容 (innerHTML)
+如何改变 HTML 元素的样式 (CSS)
+如何对 HTML DOM 事件作出反应
+如何添加或删除 HTML 元素
+************************************************************************
+-->
+
+</body>
+</html>

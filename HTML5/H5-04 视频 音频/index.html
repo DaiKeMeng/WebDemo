@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频和音频</title>
+
+</head>
+<body>
+<button onclick="playPause()">播放/暂停</button>
+<button onclick="makeBig()">大</button>
+<button onclick="makeNormal()">中</button>
+<button onclick="makeSmall()">小</button>
+
+<br>
+
+
+<!--
+****************************************
+video paused属性说明的是现在是否正在播放  bool值
+****************************************
+-->
+
+<video src="http://github.liaoxuefeng.com/sinaweibopy/video/merge-with-no-ff.mp4" width="320" height="240"
+       controls="controls">Your browser does not support the video tag</video>
+
+
+<br>
+<br>
+<br>
+
+<audio src="source/成都-赵雷.mp3"
+       loop="loop"
+       controls="controls">
+    播放音频
+</audio>
+
+
+
+<script>
+    var myVideo = document.getElementsByTagName('video')[0];
+    function playPause() {
+        if (myVideo.paused) myVideo.play();
+        else myVideo.pause();
+    }
+    function makeBig() {
+        myVideo.width=560;
+    }
+    function makeSmall() {
+        myVideo.width=320;
+    }
+    function makeNormal() {
+        myVideo.width=420;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window模型</title>
+</head>
+<body>
+
+<button type="button" onclick="window.close()">关闭窗口</button>
+<br>
+<button type="button" onclick="window.open()">打开新窗口</button>
+<br>
+<button type="button" onclick="window.moveTo(100,100)">移动当前窗口</button>
+<br>
+<button type="button" onclick="window.resizeTo(100,100)">调整当前窗口的尺寸</button>
+
+<script>
+    var w = window.innerWidth ||
+        window.document.clientWidth ||
+        document.body.clientWidth;
+    var h = window.innerHeight ||
+        window.document.clientHeight ||
+        document.body.clientHeight;
+
+    document.write("可用w:" + w);
+    document.write("可用h:" + h);
+    document.write("可用宽度:" + screen.availWidth);
+    document.write("可用高度:" + screen.availHeight + "<br>");
+
+
+
+    // window.location 对象用于获得当前页面的URL 并把浏览器重定向到新的页面
+    // location.assign() 方法加载新的文档。
+    document.write(location.hostname + "<br>");
+    document.write(location.pathname + "<br>");
+    document.write(location.port + "<br>");
+    document.write(location.protocol + "<br>");
+
+
+    function loadsource() {
+        window.location.assign("http://www.baidu.com");
+    }
+//    window.history 对象在编写时可不使用 window 这个前缀。
+//    为了保护用户隐私，对 JavaScript 访问该对象的方法做出了限制
+//    history.back() - 与在浏览器点击后退按钮相同
+//    history.forward() - 与在浏览器中点击按钮向前相同
+    function loadback() {
+        window.history.back()
+    }
+//    window.navigator 对象包含有关访问者浏览器的信息。
+    
+    function alertAction() {
+        alert("你好，警告框")
+    }
+    
+    function alertsecondAction() {
+        alert("你好" + '\n' + "警告框")
+    }
+
+    function ensureAction() {
+        var r = confirm("我是确认框");
+        if (r == true){
+            alert("你点击的是确定");
+        }else {
+            alert("你点击的是取消");
+        }
+    }
+
+    function noteAction() {
+        var name = prompt("请输入您的名字:","Bill Gates");
+        if (name != null && name!=""){
+            document.write("你好!" + name + "今天过的怎么样");
+        }
+    }
+</script>
+
+<button type="button" onclick="loadsource()">加载百度</button>
+<button type="button" onclick="history.back()">后退</button>
+<button type="button" onclick="history.forward()">向前</button>
+
+
+<br><br><br>
+
+<button type="button" onclick="alertAction()" >警告框</button>
+<button type="button" onclick="alertsecondAction()" >带有折行的警告框</button>
+<button type="button" onclick="ensureAction()" >确认框</button>
+<button type="button" onclick="noteAction()" >提示框</button>
+
+<br><br><br>
+
+<script>
+    //    定时器的问题   setTiemout("执行的代码块",毫秒); 1000 就是1秒
+    var c = 0;
+    var r;
+    function timedCount() {
+        document.getElementById('txt1').value=c
+        c=c+1
+        t=setTimeout("timedCount()",1000)
+    }
+    function stopCount() {
+        clearTimeout(t);
+    }
+</script>
+
+<input id="txt1" type="text">
+<button type="button" onclick="timedCount()">开始计数</button>
+<button type="button" onclick="stopCount()">关闭计数</button>
+
+</body>
+</html>

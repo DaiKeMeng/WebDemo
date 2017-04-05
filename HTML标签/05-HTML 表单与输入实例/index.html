@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML表单与输入实例</title>
+</head>
+<body>
+
+
+<!--
+  input 的类型由type 来表示
+  text      表示输入文本
+  password  表示输入密码，有密文
+  checkbox  表示复选择框 多选
+  radio     表示单选择框
+  button    表示创建的是按钮  value表示标题
+-->
+<p>输入框</p>
+<div>
+    <div>
+        名:
+        <input type="text" name="firstname">
+    </div>
+    <div>
+        姓:
+        <input type="password" name="secondname">
+    </div>
+</div>
+
+
+<!--复选择框格式-->
+<div>
+    我喜欢篮球<input type="checkbox" name="Bike">
+    <br>
+    我喜欢马刺<input type="checkbox" name="Bike">
+</div>
+
+
+
+
+<br>
+<br>
+<!--单选择框格式-->
+<div>
+    刘西灰的性别:<br>
+    男<input type="radio" checked="checked" name="Sex" value="male">
+    <br>
+    女<input type="radio" name="Sex" value="female">
+</div>
+
+
+<br><br>
+
+<!--
+
+下拉选择框     select
+option 是选择框的中的某一项   selected属性是选中标示
+
+-->
+<div>
+    <select name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+
+</div>
+
+
+<!--
+        文本域标签
+        本身可以进行编辑
+        cols 每行能显示的字数  从而扩充宽度
+        rows 总共有多少行   从而确定能下拉的行数
+-->
+<textarea cols="50" rows="5">
+
+领先的 Web 技术教程 - 全部免费
+在w3school，你可以找到你所需要的所有的网站建设教程。
+从基础的HTML到XHTML，乃至进阶的XML、SQL、数据库、多媒体和WAP。
+
+</textarea>
+
+
+
+<div>
+    <input type="button" value="Hello world">
+</div>
+
+
+<!--
+fieldset 表示是一个选择框类型
+在数据周围绘制一个带标题的框。
+-->
+<div>
+    <fieldset>
+
+        <legend>健康信息</legend>
+         身高: <input type="text">
+         体重: <input type="text">
+    </fieldset>
+</div>
+
+
+<!--
+两个输入框外加一个按钮
+<form> 标签用于为用户输入创建 HTML 表单
+表单能够包含 input 元素，比如文本字段、复选框、单选框、提交按钮等等。
+表单还可以包含 menus、textarea、fieldset、legend 和 label 元素。
+表单用于向服务器传输数据。
+
+当点击submit的input 的时候 ，就要触发action的操作，一般可以跳转界面
+当点击reset 的input 的时候   就要触发重置这个form标签的操作
+-->
+
+<form action="index-2.html">
+    <input type="text" name="fname"><br>
+    <input type="text" name="lname"><br>
+    <input type="submit" value="Submit">
+</form>
+
+
+
+
+</body>
+</html>

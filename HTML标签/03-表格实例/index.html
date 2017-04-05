@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <title>表格实例</title>
+</head>
+<body>
+<p>每个表格由 table 标签开始</p>
+<p>每个表格行由 tr 标签开始</p>
+<p>每个表格列由 td 标签开始</p>
+
+<h4>一列:</h4>
+<!--border
+第一个参数 是宽度
+第二个参数 是线条样式  solid 细线 dashed虚线
+第三个参数 是线条颜色
+ -->
+
+
+<!--
+
+table  包含两个border
+外层的border 是整个表格的边框
+style 里面的border 是样式的边框
+style 属性中的 border  属性如果没有设置的话，就是没有边框的表格
+-->
+<table style="border:1px solid red">
+    <tr>
+        <td>100</td>
+    </tr>
+</table>
+
+
+<h4>一行三列</h4>
+<table style="border: 10px dashed red">
+    <tr style="border: 1px solid black">
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>120</td>
+        <td>120</td>
+        <td>120</td>
+    </tr>
+</table>s
+
+
+
+<!--// 空格表格-->
+<table>
+    <tr>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>100</td>
+    </tr>
+</table>
+
+<!--
+
+带有标题的表格
+
+
+td 属性  rowspan  单个表格所占的行数  colspan 单个表格所占的列数
+
+  cellspacing 是每个cell之间的距离          外边距
+  cellpadding 是cell内容的边距              内边距
+
+
+  定义background-image 的时候，一定要定义出 background-size: 100% 100%; 来确定背景图所占的尺寸
+
+-->
+<!--<table cellpadding="5"  cellspacing="5" border="1" class="table-img">-->
+    <!--<caption>我的标题</caption>-->
+    <!--<tr>-->
+        <!--<td rowspan="2">100</td>-->
+        <!--<td>200</td>-->
+        <!--<td colspan="2">300</td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td>600</td>-->
+        <!--<td>600</td>-->
+        <!--<td>600</td>-->
+    <!--</tr>-->
+<!--</table>-->
+
+
+
+<!--
+     在表格单元中排列内容
+-->
+
+
+<table width="400" border="1" cellspacing="10" cellpadding="10">
+    <tr>
+        <th align="left">消费项目...</th>
+        <th align="right">一月</th>
+        <th align="right">二月</th>
+    </tr>
+
+    <tr>
+        <th align="left">化妆品</th>
+        <th align="right">$ 241.10</th>
+        <th align="right">$ 50.10</th>
+    </tr>
+
+    <tr>
+        <th align="left">食物</th>
+        <th align="right">$ 730.10</th>
+        <th align="right">$ 650.10</th>
+    </tr>
+
+    <tr>
+        <th align="left">总计</th>
+        <th align="right">$ 1010.10</th>
+        <th align="right">$ 744.10</th>
+    </tr>
+</table>
+
+
+<!--b 标签是内容要加粗-->
+<p><b>注释:</b> 属性无法在Internet Explorer 中正确地显示。</p>
+
+
+
+<!--***********************************
+table 的  frame 属性，决定table 的样式
+  box           盒子
+  above         顶层上面有一行线
+  hsides        顶层和底层有一行线
+  vsides        左右两边都有一行线
+-->
+
+
+<p> Table with frame = "box":</p>
+<table frame="box">
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <th>January</th>
+        <th>$ 100</th>
+    </tr>
+</table>
+
+<p> Table with frame = "above":</p>
+<table frame="above">
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <th>January</th>
+        <th>$ 100</th>
+    </tr>
+</table>
+
+<p> Table with frame = "hsides":</p>
+<table frame="hsides">
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <th>January</th>
+        <th>$ 100</th>
+    </tr>
+</table>
+
+<p> Table with frame = "vsides":</p>
+<table frame="vsides">
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <th>January</th>
+        <th>$ 100</th>
+    </tr>
+</table>
+
+
+
+
+
+
+</body>
+</html>

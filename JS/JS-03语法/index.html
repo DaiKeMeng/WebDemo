@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 语法</title>
+</head>
+<body onload="starTime()">
+
+<script>
+    var message = "Hello world";
+
+    person = new Object();
+    person.name = "帅小帅";
+    person.age = 19;
+    person.sex = "男";
+    person.nation = 'china';
+    console.log(person);
+
+    person = {name:"靓小靓",sex:"女",nation:"中国"};
+    console.log(person);
+
+    function persons(name,age,sex,nation) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+
+        this.nation = nation;
+    }
+
+    mybrother = new persons('小明',15,'男','美国');
+    console.log(mybrother);
+
+    var tet = "Hello world";
+    // 加粗版
+    document.write("<p>各种形式bold："+tet.bold()+"</p>");
+    // 放大版
+    document.write("<p>各种形式big："+tet.big()+"</p>");
+    // 缩小版
+    document.write("<p>各种形式small："+tet.small()+"</p>");
+    // 倾斜
+    document.write("<p>各种形式italics："+tet.italics()+"</p>");
+
+    document.write("<p>各种形式blink："+tet.blink()+"</p>");
+    document.write("<p>各种形式fixed："+tet.fixed()+"</p>");
+
+    // strike 是字符串上面画横线
+    document.write("<p>各种形式strike："+tet.strike()+"</p>");
+    document.write("<p>各种形式fixed："+tet.fixed()+"</p>");
+
+    document.write(message.replace("world","everyone") + "<br>");
+    document.write(message.match("Hello") + "<br>");
+</script>
+
+
+<p>************************时间************************</p>
+
+<script>
+    document.write("获取当前时间" +  Date() + "<br>");
+    var d = new Date();
+    document.write("获取从1970年开始的秒数" +  d.getTime() + "<br>");
+    var weekday = new Array(7);
+    weekday[0] = "星期日";
+    weekday[1] = "星期一";
+    weekday[2] = "星期二";
+    weekday[3] = "星期三";
+    weekday[4] = "星期四";
+    weekday[5] = "星期五";
+    weekday[6] = "星期六";
+    document.write("今天是"+weekday[d.getDay()] + d.getDay() + "<br>");
+
+</script>
+
+<p>************************制作一个时间计时器************************</p>
+<div id="txt"></div>
+
+
+<script>
+    function starTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('txt').innerHTML = h +":" + m + ":" + s;
+//        setTimeout 是一个计时器
+        t = setTimeout('starTime()',500);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+</script>
+
+<p>************************数组的创建************************</p>
+<script>
+    var mycars = new Array();
+    mycars[0] = "Saab";
+    mycars[1] = "Volvo";
+    mycars[2] = "BMW";
+    for (var x in mycars){
+        document.write(mycars[x] + "<br>");
+    }
+
+
+    var myhouse = new Array();
+    myhouse[0] = "beijing";
+    myhouse[1] = "shanghai";
+    myhouse[2] = "shenzhen";
+    // concat 是包含   一个数组包含另外一个数组，就是数组中的合并
+    document.write(mycars.concat(myhouse) + "<br>");
+    document.write(mycars + "<br>")
+    document.write(myhouse + "<br>")
+
+
+
+    //join 是链接  把数组中的元素通过某种格式进行链接  默认是, 可以自己进行设置
+    document.write(mycars.join() + "<br>");
+    document.write(mycars.join(".") + "<br>");
+
+
+
+    function sortnumberaction(a,b) {
+        return a - b;
+    }
+
+    // sort 是排序的问题
+    document.write(mycars.sort() + "<br>");
+
+    var numberArray = new Array();
+    numberArray[0] = 11;
+    numberArray[1] = 105;
+    numberArray[2] = 9;
+    numberArray[3] = 100;
+
+    document.write(numberArray.sort(sortnumberaction) + "<br>");
+</script>
+
+
+<script>
+    // Math.round 是四舍五入的取整数的计算
+    document.write(Math.round(0.5) + "<br>");
+    // random 是随机数
+    document.write(Math.round(Math.random() *100) + "<br>");
+
+
+    // 正则表达式   ReExp   方法一般有
+    //  test（）       如果包含某个字符，就是true 反之false
+    //  exec()        是包含这个字符就返回这个字符，反之null
+    //  compile()     既可以改变检索模式  也可以添加或删除第二个参数
+    var part1 = new RegExp('e');
+
+    document.write(part1.test("The best things in life are free") + "<br>");
+    part1.compile("d");
+    document.write(part1.test("The best things in life are free") + "<br>");
+</script>
+
+
+</body>
+</html>

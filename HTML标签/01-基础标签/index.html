@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML的基础标签</title>
+</head>
+<body style="background-color: forestgreen">
+<!--段落标签-->
+<p>我是段落标签</p>
+<hr>
+<!--超链接标签-->
+<a href="http://www.baidu.com">超链接标签</a>
+<hr>
+<!--标题标签-->
+<h1 class="first">
+    <a class="标题">一级标题标签</a>
+</h1>
+<h2 id="second">二级标题标签</h2>
+<h3 title="three">三级标题标签</h3>
+<h4>四级标题标签</h4>
+<h5>五级标题标签</h5>
+<h6>六级标题标签</h6>
+
+<!--*************************************
+可以用标签把HTML文档分割
+-->
+
+<p>第一行</p>
+<p>第二行</p>
+
+<!--*************************************
+可以在标签内部嵌套标签，从而使标签样式进行修改
+-->
+
+<p>这是一个<br>新的<br>被折断的<br>标签</p>
+
+
+<!--*************************************
+唐诗排版
+-->
+<h1>春晓</h1>
+<p>
+    春眠不觉晓,
+      处处闻啼鸟.
+        夜来风雨声,
+          花落知多少.
+</p>
+
+
+<!--样式问题-->
+<h1 style="font-family: Verdana">A heading</h1>
+<p style="font-family: Arial;color: red;font-size: 20px">A paragraph</p>
+
+
+
+<!--*************************************
+文本格式化问题
+-->
+<b>This text is bold</b>
+<br>
+<strong> This text is strong</strong>
+<br>
+<em> This text is emphasized</em>
+<br>
+<i>This text is italic</i>
+
+<!--     pre   “计算机输出”标签 -->
+
+<p>pre 标签很适合显示计算机代码：</p>
+<pre>
+    for i = 1 to 10
+        print i
+    next
+</pre>
+
+
+<!--*************************************
+地址标签
+-->
+<address>
+    <a href="https://www.fangsdai.com">房金所</a><br>
+    Visit us at:<br>
+
+    <!--
+    abbr 标签是缩减标签，当鼠标指引标签上面后，title就能显示出来
+    -->
+
+    <!--dfn标签也是缩减标签，能够显示title-->
+    <abbr title="代克孟">DKM.</abbr><br>
+    Tel:<a>13764192391</a>
+</address>
+
+
+<!--*************************************
+倒叙
+-->
+<p dir="rtl">
+    如果您的浏览器支持 bi-directional override(bdo),下一行会从右向左输出(rtl)；
+</p>
+
+<bdo dir="rtl">
+    代克孟
+</bdo>
+
+<!--定义短的引用-->
+<!--*************************************
+    q 标签是引用标签，自动在苟免加上双引号
+-->
+<p>WWF 的目标是:<q>构建人与自然和谐共存的世界</q></p>
+
+
+
+
+<!--*************************************超链接标签的实例*************************************-->
+
+
+
+<!--
+a 标签 如果只设置href属性，表示在当前页面进行跳转  如果设置target属性就能另开一个页面进行跳转
+-->
+<a href="http://www.baidu.com" >百度一下</a>
+<a href="http://www.fangsdai.com" target="_blank">房速贷</a>
+
+
+<!--
+如果想要一个图片来进行跳转的话，在a标签里面添加一个img标签
+-->
+<a href="http://www.baidu.com" target="_blank">
+    <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+</a>
+
+
+<!--
+如果想要跳转到本目录下面的某一级目录 需要跳转的时候把要跳转到标签里面添加一个a标签，设置name 或者 id属性  不能是class
+-->
+<!--a标签的href = "#name"-->
+<a href="#标题">跳转到唐诗</a>
+
+
+
+
+<!--跳出框架，然后进行处理-->
+<a href="http://www.baidu.com" target="_top">百度一下</a>
+
+
+<p>创建一个邮件链接</p>
+<!--mailto : 表示要进行发送邮件-->
+<!--subject 表示的是邮件的主题-->
+
+<a href="mailto:393977117@qq.com">发送邮件</a>
+<br>
+
+<!--cc 是抄送-->
+<!--bcc 是密送-->
+<!--body : 是内容-->
+<a href="mailTo:393977117@qq.com?cc=1253345114@qq.com&bcc=352585061@qq.com&subject=Hello%20World&body=你好，世界">发送带有主题 内容  抄送人的邮件</a>
+
+
+
+<!--如果想要跳转到别的页面的某一个标签位置，需要知道地址和标签的name标识符，然后拼接下，放在a元素的href属性里面-->
+<a href="http://www.w3school.com.cn/html/html_links.asp#tips">有用的提示</a>
+
+
+</body>
+</html>

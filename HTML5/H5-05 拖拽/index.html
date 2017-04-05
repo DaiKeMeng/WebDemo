@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+</head>
+<body>
+
+
+<!--
+<div style="border: 1px solid #aaaaaa;width: 500px;height: 500px"
+ondrop="drop(event)" ondragover="allowDrop(event)" id="div1">
+</div>
+
+<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png"
+     width="200" draggable="true" ondragstart="drag(event)" id="drag1">
+
+<p>把图片拖拽到相框里面</p>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("Text",ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+
+-->
+<!--*****************************************************************
+拖拽的步骤: A-B
+1. A元素必须设置   draggable属性, 这个属性决定你的元素是否支持拖拽
+2. A元素要设置事件 ondragstart(event) 这个规定了被拖动的数据
+   进而函数       dataTransfer.setData()函数决定被拖拽数据的数据类型和值
+3. B元素设置      ondrop(event)事件      :
+                        1.调用 preventDefault() 来避免浏览器对数据的默认处理（drop 事件的默认行为是以链接形式打开）
+                        2.通过 dataTransfer.getData("Text") 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。
+                        3.被拖数据是被拖元素的 id ("drag1")
+                        4.把被拖元素追加到放置元素（目标元素）中
+
+            ondragover(event)事件       : 规定在何处放置被拖动的数据
+
+****************************************************************
+-->
+<!--*****************************************************************实例*****************************************************************-->
+
+
+<header>
+   <h1>成都</h1>
+</header>
+<article id="ardemo1" ondrop="dragAction(event)" ondragover="ondragoveraction(event)" style="background-color: #d0d0d0">
+    <p style="visibility: hidden"> wo </p>
+    <p id="pdemo2">和我在成都的街头走一走</p>
+    <p>直到所有的灯都熄灭了也不停留</p>
+    <p>你会挽着我的衣袖 我会把手揣进裤兜</p>
+    <p id="pdemo1" draggable="true" ondragstart="ondragstartaction(event)">赵雷 歌词</p>
+</article>
+<footer>
+    <h2>赵雷</h2>
+</footer>
+
+<div style="width: 300px;height: 300px;border: 1px solid #aaaaaa">
+
+</div>
+
+<script>
+    // A 元素要设置拖拽的数据类型 和 值
+    function ondragstartaction(ev) {
+//        setData方法 第一个参数相当于标识符  第二个就是数据值
+        ev.dataTransfer.setData("00",ev.target.id);
+    }
+
+    // B 元素要进行数据填充设置
+    function dragAction(ev) {
+        ev.preventDefault();
+        var dra = ev.dataTransfer.getData("00");
+        ev.target.appendChild(document.getElementById(dra));
+    }
+
+    function ondragoveraction(ev) {
+        ev.preventDefault();
+    }
+</script>
+
+</body>
+</html>
