@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画画线</title>
+</head>
+<body>
+<canvas id="demo" width="300" height="300" style="background-color: #dddddd">
+</canvas>
+
+
+<script>
+    var c = document.getElementById("demo");
+    var cxt = c.getContext("2d");
+    var end = 0;
+    function drawCircleAction() {
+        cxt.beginPath();
+        cxt.strokeStyle="#dd0000";
+        console.log("哈哈");
+        cxt.arc(150,150,100,end,end + Math.PI / 180,false);
+        cxt.stroke();
+        end += Math.PI / 180;
+        if (end > Math.PI * 2){
+            clearInterval(timer);
+        }
+    }
+    var timer = setInterval('drawCircleAction()',50);
+</script>
+
+</body>
+</html>

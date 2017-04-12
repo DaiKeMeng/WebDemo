@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.0.js"></script>
+    <title>DOM操作</title>
+</head>
+<body>
+<!--
+************************************
+jQuery 可以直接操作节点
+1. text() 可以直接设置或者返回所选元素的文本内容
+2. html() 可以设置或者返回所选元素的内容  包括HTML标记
+3. val()  设置或返回表单字段的值
+4. attr(属性) 获取某个节点的某一个属性值   属性是跟style同级的属性
+************************************
+-->
+<p id="test1">这是第一个段落</p>
+<p id="test2">这是第二个段落</p>
+<input id="test3" value="hello">
+
+<button onclick="changeTextAction()">修改Text</button>
+<button onclick="changeHTMLAction()">修改HTML</button>
+<button onclick="changeValueAction()">修改value</button>
+
+<script>
+    function changeTextAction() {
+        $("#test1").text("Hello World");
+    }
+    function changeHTMLAction() {
+        $("#test2").html("<h1>你好啊！</h1>");
+    }
+    function changeValueAction() {
+        $("#test3").attr({'value':"你好啊",'style':"background-color:red;font-size:20px"});
+    }
+</script>
+
+<br><br><br>
+<!--
+************************************
+jQuery 添加新的 HTML 内容
+1. append()     在被选元素的结尾插入内容
+2. prepend()    在被选元素的开头插入内容
+3. after()      在被选元素之后插入内容
+4. before()     在被选元素之前插入内容
+
+删除HTML元素
+1.  remove()  移除被选元素    $("p").remove(".italic");  p元素中类名为italic的删除
+2.  empty()   从被选元素中删除子元素
+************************************
+-->
+
+<button onclick="a()">点我增加内容</button>
+<button onclick="b()">获取Text</button>
+<script>
+    function a() {
+        $('p').append('<b>你好啊，世界!</b>');
+    }
+    function b() {
+        $('p').prepend('很不好');
+    }
+</script>
+
+
+<!--
+**************************************
+创建新的元素三种方法
+    HTML方法：
+var text = "<p>内容</p>"
+    jQuery方法：
+var text = $("<p></p>").text("内容")
+    DOM操作来创建
+var text = document.createElement("p")
+text.innerHTML = "内容"
+**************************************
+-->
+
+<!--******************* jQuery操作元素的CSS属性*******************-->
+
+<!--
+方法：
+    1。 addClass()         给原有的元素添加一个新的类，从而改变他的CSS属性
+    2。 removerClass()     从元素中删除类名，从而修改他的CSS属性
+    3。 toggleClass()      对被选元素进行添加/删除类的切换操作
+-->
+
+<b>你好啊</b><br>
+<b>你好啊</b><br>
+<b>你好啊</b><br>
+
+<div id="divs">你有没有搞错啊</div>
+<button onclick="classAction()">.....</button>
+<script>
+    function classAction() {
+        $('b').addClass('blue')
+        $('#divs').addClass('importants');
+    }
+</script>
+
+<style>
+    .blue{
+        color: blue;
+        font-size: 10px;
+    }
+    .importants{
+        font-weight: bold;
+        font-size:xx-large;
+    }
+</style>
+
+</body>
+</html>

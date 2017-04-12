@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.appcache">
+
+
+<!--CACHE MANIFEST-->
+<!--在此标题下列出的文件将在首次下载后进行缓存-->
+
+<!--NEWWORK: *-->
+<!--在此标题下列出的文件需要与服务器的连接，且不会被缓存-->
+
+<!--FALLBACK:-->
+<!--在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面）-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>存储</title>
+</head>
+<body>
+
+<!--
+存储： H5提供了两种在客户端的数据存储
+1 localStorage      没有时间限制的数据存储
+2 sessionStorage    针对一个session的数据存储    用户关闭浏览器的时候就会删除 暂时存储
+-->
+
+<script>
+    localStorage.lastname="Smith";
+    console.log(localStorage.lastname);
+
+    // localStorage.pagecount 是否存在，如果存在就执行+1的操作，不存在就设置为1
+    if (localStorage.pagecount){
+        localStorage.pagecount=Number(localStorage.pagecount) + 1;
+    }else {
+        localStorage.pagecount=1;
+    }
+    document.write("访问页面" + localStorage.pagecount + "次");
+</script>
+
+
+<script>
+    sessionStorage.lastname="007";
+    console.log(sessionStorage.lastname);
+
+// 当关闭浏览器，sessionStorage里面的数据就会删除
+    if (sessionStorage.pagecount){
+        sessionStorage.pagecount=Number(sessionStorage.pagecount) + 1;
+    }else {
+        sessionStorage.pagecount=1;
+    }
+    document.write("访问页面" + sessionStorage.pagecount + "次");
+</script>
+
+
+</body>
+</html>

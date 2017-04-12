@@ -6,6 +6,22 @@
 </head>
 <body>
 
+<!--
+********************************
+canvas   画图的操作只能在js代码中进行
+步骤：
+1。 创建canvas标签  然后设置唯一标识符
+2。 从script 标签  拿取canvas标签  然后进行设置
+3。 先创建一个基于canvas标签的画布  cxt = c.getContext ("2d")
+4。  cxt.fillStyle 填充颜色   cxt.fillRext（区域）  cxt.strokeStyle  线的颜色
+    cxt.moveTo是移动到某个点  cxt.lineTo 是连接成线的终点
+    cxt.beginPath() 开始画路径  cxt.arc（圆心.x,圆心.y,半径,起点,终点,是否逆时针）
+    cxt.createLinearGradient(0,0,175,50); 创建一个变色的区域  addColorStop（百分比,颜色） 多个addColorStop就能创建成一个颜色渐变
+    画相片 创建cxt 然后创建一个 image  然后调用drawImage(图片,起点.x,起点.y);
+********************************
+-->
+
+
 <canvas id="mycanvas" width="200" height="100" style="background-color: #a0a0a0"></canvas>
 <br>
 <br>
@@ -15,9 +31,20 @@
 <canvas id="imgcan" style="width: 500px;height: 500px; background-color: antiquewhite"></canvas>
 <br>
 <br>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
-    <polygon points="100,10 40,180 190,60 10, 60 160,180" style="fill: linme;stroke: purple;stroke-width: 5;fill-rule: evenodd">
 
+<!--
+********************************
+svg 这个可以看作一个标签来画图 ,画图的元素都可以拿取到，不用重绘就可以
+
+
+
+********************************
+-->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+    <polygon points="100,10 40,180 190,60 10, 60 160,180"
+             style="fill: linme;
+             stroke: purple;stroke-width: 5;
+             fill-rule: evenodd">
     </polygon>
 </svg>
 
@@ -65,3 +92,22 @@
 
 </body>
 </html>
+
+<!--
+****************************** canvas 和 svg 的不同 ******************************
+canvas
+依赖分辨率
+不支持事件处理器
+弱的文本渲染能力
+能够以 .png 或 .jpg 格式保存结果图像
+最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+
+
+svg
+不依赖分辨率
+支持事件处理器
+最适合带有大型渲染区域的应用程序（比如谷歌地图）
+复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+不适合游戏应用
+******************************************************************************************
+-->

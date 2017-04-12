@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="jquery-3.2.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("p").mouseenter(function(){
+                $("p").css("background-color","yellow");
+            });
+
+            $("p").mouseleave(function(){
+                $("p").css("background-color","#E9E9E4");
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <p>第一行</p>
+    <p>第二行</p>
+    <p>第三行</p>
+</div>
+
+
+<div id="div1" style="background-color: red;width:50px; height: 50px"></div>
+<div id="div2" style="background-color: yellow;width:50px; height: 50px"></div>
+<div id="div3" style="background-color: blue;width:50px; height: 50px"></div>
+
+
+<button onclick="hideOrShowsource()">点我隐藏／显示</button>
+<button onclick="slideAction()">向上或者向下</button>
+
+<script>
+    var isShow = true;
+    function hideOrShowsource() {
+        // 由于有3个P标签，所以显示3个alert
+        // toggle  显示或者隐藏
+//        $("div").toggle(300,function () {
+//            alert("动画完成");
+//        });
+        // fadeIn  淡入已隐藏的元素
+//        $("div p").fadeIn(300,function () {
+//            alert("动画完成");
+//        });
+        // fadeOut  淡出已显示的元素
+//        $("div  p").fadeOut(300,function () {
+//            alert("动画完成");
+//        });
+
+
+//      fadeToggle 自动的在fadeIn 和fadeOut之间进行交换
+
+        $("div#div1").fadeToggle();
+        $("div#div2").fadeToggle("slow");
+        $("div#div3").fadeToggle(3000);
+
+        $("p").fadeTo("slow",0.5);
+
+
+    }
+</script>
+
+
+<script>
+    function slideAction() {
+        $("p").slideToggle("slow");
+        $("div#div2").slideToggle("slow");
+    }
+
+
+</script>
+</body>
+</html>
+
+<!--
+******************************************
+toggle                   是在隐藏和显示之间自动徘徊
+
+fadeToggle               是在淡入和淡出之间自动徘徊
+
+fadeTo (速度, 效果，回调)  透明度显示
+
+slideDown()              向下滑动元素
+slideUp()                向上滑动元素
+
+slideToggle              是在向下或者向上来回切换
+
+******************************************
+-->

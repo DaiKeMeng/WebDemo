@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器发送事件</title>
+</head>
+<body>
+<p id="demo">往服务器发送事件</p>
+
+<script>
+    x = document.getElementById("demo");
+    if (typeof(EventSource) !== "undefined"){
+        var source = new EventSource("http://192.168.1.54:8081/api/v3/index/1/getIndex");
+        source.onmessage = function (event) {
+            console.log(event.data);
+        }
+
+
+    }else {
+        x.innerHTML="你的浏览器不支持server-sent事件...";
+    }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.0.js"></script>
+    <title>AJAX demo</title>
+
+
+    <!--
+    **************************************************
+    使用XMLHttpRequest的请求步骤
+    1。 第一需要进行判断浏览器的型号，从而进行判断
+         if  (window.XMLHttpRequest)
+                httpRequest = new XMLHttpRequest();
+        else
+                httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+
+    2。 判断httpRequest是否存在
+        if (xmlhttp!=null){
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4){
+                // 4 = "loaded"
+                  if (xmlhttp.status==200){// 200 = "OK"
+                        document.getElementById('T1').innerHTML=xmlhttp.responseText;
+                  }else{
+                    alert("Problem retrieving data:" + xmlhttp.statusText);
+                  }
+                }
+            };
+            xmlhttp.open("GET",url,true);
+            xmlhttp.send(null);
+        }else{
+            alert("你的浏览器不支持XMLHTTP");
+        }
+     *******************************************************
+-->
+
+    <script>
+        var httpRequest;
+        if  (window.XMLHttpRequest)
+            httpRequest = new XMLHttpRequest();
+        else
+            httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+
+
+        //  onreadystatechange 这个就是获取服务器响应以后得到的参数
+        httpRequest.onreadystatechange = function () {
+            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                console.log("httpRequest的请求内容:" + httpRequest.responseText);
+            }
+        }
+        httpRequest.open("GET","text.txt",true);
+        httpRequest.send();
+
+    </script>
+
+
+</head>
+<body>
+
+<!--
+*********************************
+XMLHttpRequest 对象的请求
+1. open(参数1，参数2，参数3)     参数1：请求的类型 GET 或 POST    参数2：文件在服务器的位置    参数3：是否异步（true 异步  false 同步）
+
+2. send(string)     string：仅用于POST请求.如果没有参数就直接为空
+
+load 就是加载外部文件信息，从而获取里面的数据
+*********************************
+-->
+
+<p id="first">你好啊</p>
+<p>你好啊</p>
+<p>你好啊</p>
+<button onclick="loadSourceAction()">加载外部数据</button>
+
+<script>
+    function loadSourceAction() {
+        $('#first').load("text.txt",function (responseTxt,statusTxt,xhr) {
+            console.log("responseTxt:" + responseTxt + ",statusTxt :" + statusTxt + ",xhr :" + xhr);
+            if (statusTxt == "success"){
+                alert("外部数据调用成功。外部数据是"+responseTxt);
+            }else {
+                alert("外部数据没有调用成功");
+            }
+        });
+
+        // 不能链接到外网，有跨域问题
+        $.get("https://www.baidu.com",function (response,status,xhr) {
+            if (status == 'success'){
+                console.log("请求成功后response :" + response);
+            }else {
+                console.log("请求失败后response :" + response);
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery-3.2.0.js"></script>
+    <title>动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--
+*****************************************
+如果想要移动控件，需要进行设置控件的 position属性为 relative  fixed 或 absolute   因为元素默认都是静态的，不能移动的
+*****************************************
+-->
+
+<div style="background-color: lightseagreen;width: 100px;height: 100px;align-items: center">
+    <p style="font-size: 20px">jQuery</p>
+</div>
+<button onclick="animationAction()">点我试试</button>
+<script>
+    function animationAction() {
+        $("div").animate({'left':"150px"});
+        $("div").animate({'height':'250px'});
+        $("div").animate({'width':'250px'});
+        $("div").animate({'height':'100px'});
+        $("div").animate({'width':'100px'});
+    }
+</script>
+<br><br><br>
+
+<button onclick="slideAction()">点击下滑</button>
+<button onclick="stop()">点击停止</button>
+
+<div id="div1" style="background-color: blanchedalmond;height: 30px;">你好啊</div>
+<div id="div2" style="background-color: cornflowerblue;height: 30px" hidden="hidden">Hello world!</div>
+<br><br><br>
+<script>
+    function slideAction() {
+        $("#div2").slideDown(5000);
+    }
+
+    function stop() {
+        $("#div2").stop();
+    }
+
+</script>
+
+
+
+
+<div id="div0" style="background-color: darkseagreen;width: 100px;height: 100px">HELLO</div>
+
+<button onclick="changeAction()">开始</button>
+<button onclick="stop()">停止</button>
+<button onclick="stop1()">停止所有</button>
+<button onclick="stop2()">直接完成</button>
+<script>
+    function start() {
+        $("#div0").animate({'left':'150px'},3000);
+        $("#div0").animate({'fontSize':"30px"},'slow');
+        $("#div0").animate({'height':'200px', 'width':"200px"},'slow')
+
+    }
+    function stop() {
+        $("#div0").stop();
+    }
+    function stop1() {
+        $("#div0").stop(true);
+    }
+    function stop2() {
+        $("#div0").stop(true,true);
+    }
+
+    // jQuery的链式写法，可以让很多事件串联在一起进行操作，运用,
+    function changeAction() {
+        $("#div0").css('color','red')
+            .slideUp(300)
+            .slideDown(300);
+    }
+</script>
+
+<!--
+****************************************
+stop（参数1，参数2）
+参数1： stopAll 是否停止当前的动画
+参数2： goToEnd 是否直接略过动画显示最终效果
+****************************************
+-->
+
+
+</body>
+</html>

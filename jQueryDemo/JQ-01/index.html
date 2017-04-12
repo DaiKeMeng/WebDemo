@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ安装</title>
+    <!--********************************
+    单独一行引入jquery的库
+    -->
+    <script src="jquery-3.2.0.js"></script>
+    <script>
+        // $(ducoment) 是指document全部
+        $(document).ready(function () {
+            // $(p) 是指document全部的p标签
+//            $("p").click(function () {
+//                // $(this).hide()调用this 的隐藏方法
+//                $(this).hide();
+//            })
+            $("p").mouseenter(function () {
+                $("p").css("background-color","red");
+            })
+
+            $("p").mouseleave(function(){
+                $("p").css("background-color","#E9E9E4");
+            });
+
+        })
+    </script>
+    <script>
+        // jQuery,noConflict() 是修改jQuery的标识符，为了避免符号重叠
+//        var jp = jQuery.noConflict();
+        function clickcolol() {
+            $("p").css("background-color","yellow");
+        }
+    </script>
+
+</head>
+<body>
+<p>点我，我会消失</p>
+<p>点我，我也会消失</p>
+<p>点我，你猜我会消失</p>
+<button type="button" onclick="clickcolol()">点我</button>
+
+<script>
+    $("p").mouseleave(function(){
+        $("p").css("background-color","#E9E9E4");
+    });
+</script>
+
+<!--
+**************************************************
+1。 $(this).hide()       隐藏HTML元素
+2。 $("#test").hide()    隐藏id="test"的元素
+3。 $("p").hide()        隐藏所有的p元素
+4。 $(".test").hide()    隐藏所有的class为test的元素
+**************************************************
+-->
+</body>
+</html>
